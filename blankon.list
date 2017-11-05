@@ -1,0 +1,36 @@
+############# config ##################
+
+# Blankon XI-dev
+set base_path /media/blankon/DISK2PART1/BLANKON/BLANKON_XI/REPO
+
+set mirror_path  $base_path/mirror
+set skel_path    $base_path/skel
+set var_path     $base_path/var
+#set cleanscript $var_path/clean.sh
+# set defaultarch i386
+set defaultarch  amd64
+# set postmirror_script $var_path/postmirror.sh
+set run_postmirror 0
+set nthreads     5
+set _tilde 0
+
+# SKIP Rules
+skip section debug reason "because it is a debug section"
+skip if_name_contains dbg reason "because it is a debug package"
+#skip size_more_than 10000000 reason "because it is more than 10MB"
+#skip if_name_contains locale except if_name_contains "locale-en" except if_name_ends_with locale reason "because it is a non english locale package"
+#exception if_name_contains git reason "because we like git"
+
+# MIRROR LIST 
+##########################################
+##              blankon XI              ##
+##########################################
+
+deb http://arsip-dev.blankonlinux.or.id/blankon uluwatu main restricted extras extras-restricted
+
+clean http://arsip-dev.blankonlinux.or.id/blankon
+
+##########################################
+##                end                   ##
+##########################################
+
